@@ -1,26 +1,20 @@
-# 🖥️ Menú y control de flujo
+Rama 2 (Carrito y Facturación)
 
-Esta rama se encarga de desarrollar el menú principal del sistema de tienda 
-permitiendo al usuario navegar entre las diferentes opciones y controlar el flujo de ejecución del programa.
+Descripción
+Este módulo se encarga de administrar el proceso de compra dentro del sistema de la tienda. Su función es organizar los productos que el cliente desea comprar, verificar que estén disponibles y calcular el monto que deberá pagar al finalizar la compra.
+1. Gestión del carrito
+Permite guardar temporalmente los productos seleccionados por el cliente, junto con la cantidad que desea comprar. Para organizar esta información se pueden utilizar arreglos o vectores, facilitando el manejo de varios productos en una misma compra.
 
-## Funcionalidades
+2. Verificación del stock
+Antes de confirmar la compra, el sistema revisa que exista suficiente inventario de cada producto. Esto ayuda a evitar que se vendan unidades que la tienda no tiene disponibles y permite informar al cliente si debe reducir la cantidad solicitada.
 
-- **Menú principal:** muestra las opciones disponibles para que el usuario pueda interactuar con el sistema.
-- **Control de flujo:** utiliza estructuras condicionales y repetitivas para ejecutar las acciones según la opción seleccionada.
-- **Validación de opciones:** verifica que el usuario ingrese una opción válida dentro del menú.
-- **Navegación:** permite acceder a las diferentes funcionalidades del sistema y regresar al menú principal.
-- **Salida del programa:** permite finalizar la ejecución del sistema cuando el usuario lo indique.
+3. Cálculos de la compra
+El sistema suma el precio de cada producto multiplicado por su cantidad para obtener el subtotal. Después calcula el 13 % de IVA y lo suma al subtotal para determinar el total final que debe pagar el cliente.
 
-## Opciones de ejemplo
+4. Generación de la factura
+Al terminar los cálculos, el programa muestra en la consola un comprobante con el nombre de los productos, las cantidades, los precios, el subtotal, el IVA y el total a pagar. De esta manera, el cliente puede revisar el detalle de su compra.
 
-| Opción | Funcionalidad |
-|---|---|
-| 1 | Mostrar productos |
-| 2 | Realizar compra |
-| 3 | Consultar stock |
-| 4 | Salir del sistema |
-
-## Objetivo
-
-Garantizar una navegación sencilla y ordenada dentro del sistema
-facilitando la interacción del usuario con las diferentes funcionalidades mediante el uso de estructuras de control en C++.
+Fórmulas principales
+Subtotal: suma de (precio unitario × cantidad).
+IVA: subtotal × 0.13.
+Total a pagar: subtotal + IVA.
