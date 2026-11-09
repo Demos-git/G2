@@ -1,17 +1,20 @@
-# 📦 Estructura de datos y gestión de stock
+Rama 2 (Carrito y Facturación)
 
-Esta rama se encarga de administrar la disponibilidad de cada producto en la tienda.
+Descripción
+Este módulo se encarga de administrar el proceso de compra dentro del sistema de la tienda. Su función es organizar los productos que el cliente desea comprar, verificar que estén disponibles y calcular el monto que deberá pagar al finalizar la compra.
+1. Gestión del carrito
+Permite guardar temporalmente los productos seleccionados por el cliente, junto con la cantidad que desea comprar. Para organizar esta información se pueden utilizar arreglos o vectores, facilitando el manejo de varios productos en una misma compra.
 
-## Funcionalidades
+2. Verificación del stock
+Antes de confirmar la compra, el sistema revisa que exista suficiente inventario de cada producto. Esto ayuda a evitar que se vendan unidades que la tienda no tiene disponibles y permite informar al cliente si debe reducir la cantidad solicitada.
 
-- **Estructura de datos:** define cada artículo con su **cantidad disponible** y su **categoría** (bocinas, laptops, teléfonos, etc.), lo que facilita la organización y búsqueda del catálogo.
-- **Control de existencias:** al venderse un producto, su cantidad se descuenta automáticamente.
-- **Validación de stock:** no se permiten pedidos de artículos agotados.
+3. Cálculos de la compra
+El sistema suma el precio de cada producto multiplicado por su cantidad para obtener el subtotal. Después calcula el 13 % de IVA y lo suma al subtotal para determinar el total final que debe pagar el cliente.
 
-## Categorías de ejemplo
+4. Generación de la factura
+Al terminar los cálculos, el programa muestra en la consola un comprobante con el nombre de los productos, las cantidades, los precios, el subtotal, el IVA y el total a pagar. De esta manera, el cliente puede revisar el detalle de su compra.
 
-| Categoría | Ejemplo        |
-|-----------|----------------|
-| Bocinas   | Bocina Bluetooth |
-| Laptops   | Laptop gamer   |
-| Teléfonos | Smartphone     |
+Fórmulas principales
+Subtotal: suma de (precio unitario × cantidad).
+IVA: subtotal × 0.13.
+Total a pagar: subtotal + IVA.
