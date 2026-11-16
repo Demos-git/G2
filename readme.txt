@@ -1,4 +1,4 @@
- 🖥️ Menú y control de flujo
+  Menú y control de flujo
 
 Esta rama se encarga de desarrollar el menú principal del sistema de tienda 
 permitiendo al usuario navegar entre las diferentes opciones y controlar el flujo de ejecución del programa.
