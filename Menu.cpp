@@ -40,7 +40,7 @@ float registrarCompra(string productos[],
 
     for (int i = 0; i < cantidadProductos; i++) {
 
-        cout << "\nProducto: " << productos[i] << endl;
+        cout << "Producto: " << productos[i] << endl;
         cout << "Precio: $" << preciosProductos[i] << endl;
         cout << "Stock disponible: " << stock[i] << endl;
 
@@ -60,7 +60,7 @@ float registrarCompra(string productos[],
         }
     }
 
-    cout << "\n===== FACTURA DE COMPRA =====" << endl;
+    cout << "===== FACTURA DE COMPRA =====" << endl;
     cout << "Cliente: " << nombre << endl;
 
     for (int i = 0; i < cantidadProductos; i++) {
