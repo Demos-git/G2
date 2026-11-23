@@ -1,19 +1,14 @@
 #include <iostream>
 #include <string>
-#include <login.cpp>
+#include <iomanip>
+#include "yo.h"
 using namespace std;
-
-const int MAX = 100;
 
 string nombres[MAX];
 int cantidades[MAX];
 string categorias[MAX];
 float precios[MAX];
 int total = 0;
-
-const int SIN_ACCESO = 0;
-const int ADMIN = 1;
-const int USUARIO = 2;
 
 int leerEntero(const string& mensaje) {
     int n;
@@ -87,13 +82,21 @@ void mostrarInventario() {
         cout << "No hay productos en el inventario.\n";
         return;
     }
+    cout << fixed << setprecision(2);
     cout << "\n--- INVENTARIO ---\n";
     for (int i = 0; i < total; i++) {
-        cout << nombres[i] << " | " << categorias[i]
+        cout << i + 1 << ". " << nombres[i] << " | " << categorias[i]
              << " | Cantidad: " << cantidades[i]
+             << (cantidades[i] == 0 ? " (AGOTADO)" : "")
              << " | $" << precios[i] << "\n";
     }
     cout << "\n";
+}
+
+void cargarInventarioInicial() {
+    agregarProducto("Bocina Bluetooth", 10, "Bocinas", 25.99f);
+    agregarProducto("Laptop gamer", 5, "Laptops", 999.99f);
+    agregarProducto("Smartphone", 15, "Telefonos", 399.50f);
 }
 
 void procesoAdmin() {
@@ -109,37 +112,11 @@ void procesoAdmin() {
 }
 
 void procesoUsuario() {
-    mostrarInventario();
+    string nombre = leerLinea("Nombre del producto: ");
+    int cantidad = leerEntero("Cantidad a vender: ");
 
-    string nombre = leerLinea("Nombre del producto a comprar: ");
-    int i = buscarProducto(nombre);
-
-    if (i == -1) {
-        cout << "Ese producto no existe.\n";
-        return;
-    }
-
-    int cantidad = leerEntero("Cantidad a comprar: ");
     if (venderProducto(nombre, cantidad))
-        cout << "Compra exitosa. Total: $" << precios[i] * cantidad << "\n";
+        cout << "Venta realizada.\n";
     else
-        cout << "No se pudo comprar (cantidad invalida o stock insuficiente).\n";
-}
-
-int main() {
-    agregarProducto("Bocina Bluetooth", 10, "Bocinas", 25.99f);
-    agregarProducto("Laptop gamer", 5, "Laptops", 999.99f);
-    agregarProducto("Smartphone", 15, "Telefonos", 399.50f);
-
-    int rol = iniciarSesion();
-
-    if (rol == ADMIN) {
-        procesoAdmin();
-    } else if (rol == USUARIO) {
-        procesoUsuario();
-    } else {
-        cout << "Demasiados intentos fallidos. Programa terminado.\n";
-    }
-
-    return 0;
+        cout << "No se pudo realizar la venta (producto no encontrado o cantidad insuficiente).\n";
 }

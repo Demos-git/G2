@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <yo.cpp>
+#include "login.h"
 using namespace std;
 
 int iniciarSesion() {
@@ -26,5 +26,3 @@ int iniciarSesion() {
     }
     return SIN_ACCESO;
 }
-
-
