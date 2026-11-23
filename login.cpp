@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-using namespace std;
 #include <yo.cpp>
+using namespace std;
 
 int iniciarSesion() {
     const int INTENTOS = 3;
